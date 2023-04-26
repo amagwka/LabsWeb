@@ -38,43 +38,9 @@
       <input type='submit' value='Создать' />
     </form>
     <!-- Таблица -->
-    <table border='1' width="200">
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>4</td>
-        <td>6</td>
-        <td>8</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>6</td>
-        <td>9</td>
-        <td>12</td>
-        <td>15</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>8</td>
-        <td>12</td>
-        <td>16</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>10</td>
-        <td>15</td>
-        <td>20</td>
-        <td>25</td>
-      </tr>
-    </table>
+    <?php
+    drawTable(5, 5, "#f0f0f0");
+    ?>
     <!-- Таблица -->
     <!-- Область основного контента -->
   </div>
@@ -100,6 +66,26 @@
     &copy; Супер Мега Веб-мастер, 2000 &ndash; 2021
     <!-- Нижняя часть страницы -->
   </div>
+
+  <?php
+  function drawTable($cols, $rows, $color)
+  {
+    echo "<table border='1'>";
+    for ($i = 1; $i <= $rows; $i++) {
+      echo "<tr>";
+      for ($j = 1; $j <= $cols; $j++) {
+        $style = '';
+        if ($i == 1 || $j == 1) {
+          $style = " style='font-weight: bold; text-align: center; background-color: $color;'";
+        }
+        echo "<td" . $style . ">" . ($i * $j) . "</td>";
+      }
+      echo "</tr>";
+    }
+    echo "</table>";
+  }
+  ?>
+
 </body>
 
 </html>
