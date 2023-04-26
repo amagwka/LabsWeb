@@ -13,9 +13,16 @@
 </head>
 
 <body>
-
   <div id="header">
     <!-- Верхняя часть страницы -->
+    <?php
+    if ($visitCounter == 1) {
+        echo "<p>Спасибо, что зашли на огонек</p>";
+    } else {
+        echo "<p>Вы зашли к нам {$visitCounter} раз</p>";
+        echo "<p>Последнее посещение: {$lastVisit}</p>";
+    }
+    ?>
     <img src="logo.gif" width="187" height="29" alt="Наш логотип" class="logo" />
     <span class="slogan">обо всём сразу</span>
     <!-- Верхняя часть страницы -->
