@@ -1,12 +1,14 @@
-<?php 
-  include 'inc/headers.inc.php'; 
+<?php
+include 'inc/headers.inc.php';
+define('PATH_LOG', 'path.log');
+include 'inc/log.inc.php';
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>
-    <?=$title?>
+    <?= $title ?>
   </title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="inc/style.css" />
@@ -17,10 +19,10 @@
     <!-- Верхняя часть страницы -->
     <?php
     if ($visitCounter == 1) {
-        echo "<p>Спасибо, что зашли на огонек</p>";
+      echo "<p>Спасибо, что зашли на огонек</p>";
     } else {
-        echo "<p>Вы зашли к нам {$visitCounter} раз</p>";
-        echo "<p>Последнее посещение: {$lastVisit}</p>";
+      echo "<p>Вы зашли к нам {$visitCounter} раз</p>";
+      echo "<p>Последнее посещение: {$lastVisit}</p>";
     }
     ?>
     <img src="logo.gif" width="187" height="29" alt="Наш логотип" class="logo" />
@@ -30,11 +32,13 @@
 
   <div id="content">
     <!-- Заголовок -->
-    <h1><?= $header?></h1>
+    <h1>
+      <?= $header ?>
+    </h1>
     <!-- Заголовок -->
     <!-- Область основного контента -->
-    <?php 
-      include 'inc/routing.inc.php'; 
+    <?php
+    include 'inc/routing.inc.php';
     ?>
     <!-- Область основного контента -->
   </div>
@@ -52,13 +56,15 @@
       </li>
       <li><a href='index.php?id=gbook'>Гостевая книга</a>
       </li>
+      <li><a href='index.php?id=log'>Журнал посещений</a></li>
     </ul>
     <!-- Навигация -->
   </div>
   <div id="footer">
     <!-- Нижняя часть страницы -->
-    &copy; Супер-мега сайт, 2000 &ndash; <?= date('Y')?>
-      <!-- Нижняя часть страницы -->
+    &copy; Супер-мега сайт, 2000 &ndash;
+    <?= date('Y') ?>
+    <!-- Нижняя часть страницы -->
   </div>
 </body>
 
