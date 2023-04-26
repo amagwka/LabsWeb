@@ -24,6 +24,25 @@
     <h3>Адрес</h3>
     <p>123456 Москва, Малый Американский переулок 21</p>
     <h3>Задайте вопрос</h3>
+    <?php
+      $size_str = ini_get('post_max_size');
+      $size_unit = strtoupper(substr($size_str, -1));
+      $size_value = (int)substr($size_str, 0, -1);
+
+      switch ($size_unit) {
+        case 'K':
+          $size = $size_value * 1024;
+          break;
+        case 'M':
+          $size = $size_value * 1024 * 1024;
+          break;
+        case 'G':
+          $size = $size_value * 1024 * 1024 * 1024;
+          break;
+        default:
+          $size = $size_value;
+      }
+    ?>
     <form action='' method='post'>
       <label>Тема письма: </label>
       <br />
@@ -36,6 +55,7 @@
       <br />
       <input type='submit' value='Отправить' />
     </form>
+    <p>Максимальный размер отправляемых данных <?= $size ?> байт.</p>
     <!-- Область основного контента -->
   </div>
   <div id="nav">
@@ -60,6 +80,3 @@
     &copy; Супер Мега Веб-мастер, 2000 &ndash; 2021
     <!-- Нижняя часть страницы -->
   </div>
-</body>
-
-</html>
