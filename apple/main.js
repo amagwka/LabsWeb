@@ -73,4 +73,33 @@ function displayProducts() {
     document.querySelector(".section3 .top__title").innerHTML = iPhoneCase.displayProduct();
 }
 
-displayProducts();  
+displayProducts();
+
+function getRandomChar() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{}|;':\"<>,.?/";
+    return chars.charAt(Math.floor(Math.random() * chars.length));
+}
+
+function generatePreloaderContent(width, height) {
+    let content = "";
+
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            content += getRandomChar();
+        }
+        content += "\n";
+    }
+
+    return content;
+}
+function startPreloader() {
+    const preloaderElement = document.getElementById("preloader");
+    const width = 40; // Adjust this value to match the desired width in characters
+    const height = 40; // Adjust this value to match the desired height in characters
+    const interval = 100; // Adjust this value to set the update interval in milliseconds
+
+    setInterval(() => {
+        preloaderElement.textContent = generatePreloaderContent(width, height);
+    }, interval);
+}
+startPreloader();

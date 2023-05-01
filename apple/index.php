@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<div id="preloader"></div>
 <header>
       <ul>
         <li><img src="./svg/apple.svg" alt="apple" /></li>
