@@ -94,9 +94,9 @@ function generatePreloaderContent(width, height) {
 }
 function startPreloader() {
     const preloaderElement = document.getElementById("preloader");
-    const width = 40; // Adjust this value to match the desired width in characters
-    const height = 40; // Adjust this value to match the desired height in characters
-    const interval = 100; // Adjust this value to set the update interval in milliseconds
+    const width = 40;
+    const height = 40;
+    const interval = 100;
 
     setInterval(() => {
         preloaderElement.textContent = generatePreloaderContent(width, height);
