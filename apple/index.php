@@ -22,7 +22,7 @@
         <li>Watch</li>
         <li>TV</li>
         <li>Music</li>
-        <li>Support</li>
+        <li><a href="support.php">Support</a></li>
         <li><img src="./svg/search.svg" alt="search" /></li>
         <li><img src="./svg/shopping-bag.svg" alt="shopping bag" /></li>
       </ul>
