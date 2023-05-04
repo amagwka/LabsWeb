@@ -41,24 +41,43 @@
     <section class="section2" v-html="displayProduct(products[1])"></section>
     
 
-<section class="section3">
-    <div
-      class="background"
-      style="background-image: url(./img/s-3.jpg)"
-    ></div>
+    <section class="section3">
+  <?php
+  $servername = "localhost";
+  $username = "Mk";
+  $password = "secret :)";
+  $dbname = "products_db";
 
-    <div class="top__title">
-      <h1><img src="./svg/apple.svg" alt="apple" />WATCH</h1>
-      <h4>SERIES 6</h4>
-      <h3>The future of health is on your wrist.</h3>
-      <div class="top__title--links">
-        <a href=""
-          >Learn more <img src="./svg/right-arrow-blue.svg" alt=""
-        /></a>
-        <a href="">Buy <img src="./svg/right-arrow-blue.svg" alt="" /></a>
-      </div>
-    </div>
-  </section>
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
+
+  $sql = "SELECT name, image_url, description, price FROM products WHERE category='Watch'";
+  $result = mysqli_query($conn, $sql);
+
+  if (mysqli_num_rows($result) > 0) {
+    echo '<div class="background" style="background-image: url(./img/s-3.jpg)"></div>';
+    while($row = mysqli_fetch_assoc($result)) {
+      echo '<div class="top__title">';
+      echo '<h1><img src="./svg/apple.svg" alt="apple" />' . $row["name"] . '</h1>';
+      echo '<h4>' . $row["description"] . '</h4>';
+      echo '<h3>The price is ' . $row["price"] . '</h3>';
+      echo '<div class="top__title--links">';
+      echo '<a href="" >Learn more <img src="./svg/right-arrow-blue.svg" alt="" /></a>';
+      echo '<a href="">Buy <img src="./svg/right-arrow-blue.svg" alt="" /></a>';
+      echo '</div>';
+      echo '</div>';
+    }
+  } else {
+    echo "0 results";
+  }
+
+  mysqli_close($conn);
+  ?>
+</section>
+
   <section class="section4">
     <div class="row">
       <div class="section4__item">
