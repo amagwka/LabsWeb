@@ -23,6 +23,7 @@
         <li>TV</li>
         <li>Music</li>
         <li><a href="support.php">Support</a></li>
+        <li><a href="send_file.php">File upload</a></li>
         <li><img src="./svg/search.svg" alt="search" /></li>
         <li><img src="./svg/shopping-bag.svg" alt="shopping bag" /></li>
       </ul>
